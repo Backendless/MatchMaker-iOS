@@ -14,6 +14,14 @@ static NSString *SECRET_KEY = @"F22FB824-FB91-2432-FF35-564996366E00";
 static NSString *VERSION_NUM = @"v1";
 
 @implementation AppDelegate
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    BackendlessUser *user = [backendless.userService handleOpenURL:url];
+    if (user) {
+        
+    }
+    return YES;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
