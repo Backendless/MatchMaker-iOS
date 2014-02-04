@@ -7,12 +7,20 @@
 //
 
 #import "AppDelegate.h"
+#import "Backendless.h"
+
+static NSString *APP_ID = @"CF718D3A-893F-7E70-FFAB-2D5DF8365F00";
+static NSString *SECRET_KEY = @"F22FB824-FB91-2432-FF35-564996366E00";
+static NSString *VERSION_NUM = @"v1";
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [DebLog setIsActive:YES];
+    
+    [backendless initApp:APP_ID secret:SECRET_KEY version:VERSION_NUM];
+    
     return YES;
 }
 							
