@@ -9,7 +9,7 @@
 #import "LoginViewController.h"
 #import "Backendless.h"
 
-@interface LoginViewController ()<UIAlertViewDelegate>
+@interface LoginViewController ()<UIAlertViewDelegate, UITextFieldDelegate>
 {
     UITextField *_field;
 }
@@ -50,10 +50,15 @@
     if (![self checkLoginData]) {
         return;
     }
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [backendless.userService login:_loginField.text password:_passwordField.text response:^(BackendlessUser *user) {
         NSLog(@"logined");
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
     } error:^(Fault *error) {
         [[[UIAlertView alloc] initWithTitle:@"Error" message:error.detail delegate:nil cancelButtonTitle:@"Done" otherButtonTitles:nil] show];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     }];
 }
 -(void)loginWithFacebook:(id)sender
@@ -68,5 +73,9 @@
 -(void)alertViewCancel:(UIAlertView *)alertView
 {
     NSLog(@"cancel");
+}
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    return [textField resignFirstResponder];
 }
 @end

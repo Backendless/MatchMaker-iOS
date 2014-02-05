@@ -13,5 +13,6 @@
 @property (nonatomic, weak) IBOutlet UITextField *password;
 @property (nonatomic, weak) IBOutlet UITextField *password2;
 @property (nonatomic, weak) IBOutlet UITextField *email;
+@property (nonatomic, weak) IBOutlet UIButton *birthButton;
 -(IBAction)registrate:(id)sender;
 @end
