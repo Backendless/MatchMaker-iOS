@@ -108,6 +108,7 @@
 		91F0E1DF18A122F900E983E4 /* title_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F0E1A118A122F900E983E4 /* title_logo.png */; };
 		91F0E1E218A1292100E983E4 /* RegistrateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F0E1E118A1292100E983E4 /* RegistrateViewController.m */; };
 		91F0E1EE18A2E85B00E983E4 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F0E1ED18A2E85B00E983E4 /* ProfileViewController.m */; };
+		91F0E1F118A2F7A200E983E4 /* EditInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F0E1F018A2F7A200E983E4 /* EditInfoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -362,6 +363,8 @@
 		91F0E1E118A1292100E983E4 /* RegistrateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrateViewController.m; sourceTree = "<group>"; };
 		91F0E1EC18A2E85B00E983E4 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		91F0E1ED18A2E85B00E983E4 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		91F0E1EF18A2F7A200E983E4 /* EditInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditInfoViewController.h; sourceTree = "<group>"; };
+		91F0E1F018A2F7A200E983E4 /* EditInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditInfoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -458,6 +461,8 @@
 				91F0E1E118A1292100E983E4 /* RegistrateViewController.m */,
 				91F0E1EC18A2E85B00E983E4 /* ProfileViewController.h */,
 				91F0E1ED18A2E85B00E983E4 /* ProfileViewController.m */,
+				91F0E1EF18A2F7A200E983E4 /* EditInfoViewController.h */,
+				91F0E1F018A2F7A200E983E4 /* EditInfoViewController.m */,
 				91F0E07B18A11E5800E983E4 /* Images.xcassets */,
 				91F0E06A18A11E5800E983E4 /* Supporting Files */,
 			);
@@ -1037,6 +1042,7 @@
 				91F0E07418A11E5800E983E4 /* AppDelegate.m in Sources */,
 				91F0E1E218A1292100E983E4 /* RegistrateViewController.m in Sources */,
 				91F0E07018A11E5800E983E4 /* main.m in Sources */,
+				91F0E1F118A2F7A200E983E4 /* EditInfoViewController.m in Sources */,
 				91F0E1EE18A2E85B00E983E4 /* ProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
