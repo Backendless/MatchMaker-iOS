@@ -27,6 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _name.text = backendless.userService.currentUser.name;
 	// Do any additional setup after loading the view.
 }
 
@@ -46,6 +47,7 @@
     }
     BackendlessUser *user = backendless.userService.currentUser;
     user.name = _name.text;
+
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [backendless.userService update:user response:^(BackendlessUser *user) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];

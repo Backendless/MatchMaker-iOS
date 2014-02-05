@@ -31,7 +31,6 @@
     [_birthButton.layer setCornerRadius:5];
     [_birthButton.layer setBorderColor:[UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:0.6].CGColor];
     [_birthButton.layer setBorderWidth:0.5];
-
 	// Do any additional setup after loading the view.
 }
 -(void)viewWillDisappear:(BOOL)animated
