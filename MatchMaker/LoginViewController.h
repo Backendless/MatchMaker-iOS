@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface LoginViewController : UIViewController
-
+@property (nonatomic, weak) IBOutlet UITextField *loginField;
+@property (nonatomic, weak) IBOutlet UITextField *passwordField;
+-(IBAction)login:(id)sender;
+-(IBAction)loginWithTwitter:(id)sender;
+-(IBAction)loginWithFacebook:(id)sender;
 @end

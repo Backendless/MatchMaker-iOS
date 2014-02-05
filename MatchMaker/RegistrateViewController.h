@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface RegistrateViewController : UIViewController
-
+@property (nonatomic, weak) IBOutlet UITextField *name;
+@property (nonatomic, weak) IBOutlet UITextField *password;
+@property (nonatomic, weak) IBOutlet UITextField *password2;
+@property (nonatomic, weak) IBOutlet UITextField *email;
+-(IBAction)registrate:(id)sender;
 @end

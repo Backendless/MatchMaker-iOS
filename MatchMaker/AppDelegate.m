@@ -9,8 +9,8 @@
 #import "AppDelegate.h"
 #import "Backendless.h"
 
-static NSString *APP_ID = @"CF718D3A-893F-7E70-FFAB-2D5DF8365F00";
-static NSString *SECRET_KEY = @"F22FB824-FB91-2432-FF35-564996366E00";
+static NSString *APP_ID = @"03140D8F-76C4-F4F7-FF71-C5FDAAB22900";
+static NSString *SECRET_KEY = @"0E47A528-81B5-C5F9-FF44-713F6CF30900";
 static NSString *VERSION_NUM = @"v1";
 
 @implementation AppDelegate
