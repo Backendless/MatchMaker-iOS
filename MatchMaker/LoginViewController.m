@@ -47,16 +47,16 @@
 }
 -(void)getUserGeoPoint:(BackendlessUser *)user
 {
-    BackendlessGeoQuery *query = [BackendlessGeoQuery queryWithCategories:@[@"default"]];
-    query.metadata = (NSMutableDictionary *)@{@"email":user.email};
-    [backendless.geoService getPoints:query response:^(BackendlessCollection *collection) {
-        NSLog(@"%@", collection.data);
-    } error:^(Fault *error) {
-        NSLog(@"%@", error.detail);
-    }];
-    
-//    [self dismissViewControllerAnimated:YES completion:^{
+//    BackendlessGeoQuery *query = [BackendlessGeoQuery queryWithCategories:@[@"default"]];
+//    query.metadata = (NSMutableDictionary *)@{@"email":user.email};
+//    [backendless.geoService getPoints:query response:^(BackendlessCollection *collection) {
+//        NSLog(@"%@", collection.data);
+//    } error:^(Fault *error) {
+//        NSLog(@"%@", error.detail);
 //    }];
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+    }];
 }
 -(void)login:(id)sender
 {
