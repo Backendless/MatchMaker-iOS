@@ -14,6 +14,7 @@
     UITextField *_field;
 }
 -(BOOL)checkLoginData;
+-(void)getUserGeoPoint:(BackendlessUser *)user;
 @end
 
 @implementation LoginViewController
@@ -44,7 +45,19 @@
     }
     return YES;
 }
-
+-(void)getUserGeoPoint:(BackendlessUser *)user
+{
+    BackendlessGeoQuery *query = [BackendlessGeoQuery queryWithCategories:@[@"default"]];
+    query.metadata = (NSMutableDictionary *)@{@"email":user.email};
+    [backendless.geoService getPoints:query response:^(BackendlessCollection *collection) {
+        NSLog(@"%@", collection.data);
+    } error:^(Fault *error) {
+        NSLog(@"%@", error.detail);
+    }];
+    
+//    [self dismissViewControllerAnimated:YES completion:^{
+//    }];
+}
 -(void)login:(id)sender
 {
     if (![self checkLoginData]) {
@@ -52,10 +65,8 @@
     }
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [backendless.userService login:_loginField.text password:_passwordField.text response:^(BackendlessUser *user) {
-        NSLog(@"logined");
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        [self dismissViewControllerAnimated:YES completion:^{
-        }];
+        [self getUserGeoPoint:user];
     } error:^(Fault *error) {
         [[[UIAlertView alloc] initWithTitle:@"Error" message:error.detail delegate:nil cancelButtonTitle:@"Done" otherButtonTitles:nil] show];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];

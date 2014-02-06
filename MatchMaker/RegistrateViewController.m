@@ -8,6 +8,7 @@
 
 #import "RegistrateViewController.h"
 #import "Backendless.h"
+#import "AppDelegate.h"
 
 @interface RegistrateViewController ()<UITextFieldDelegate>
 -(BOOL)checkRegistrationData;
