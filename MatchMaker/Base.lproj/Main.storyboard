@@ -181,6 +181,9 @@
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="selected" backgroundImage="radio_checked.png"/>
+                                <connections>
+                                    <action selector="selectSex:" destination="g7h-Sq-ml7" eventType="touchUpInside" id="oTj-1Z-iXC"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTA-9y-MqB">
                                 <rect key="frame" x="236" y="125" width="21" height="22"/>
@@ -191,6 +194,9 @@
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="selected" backgroundImage="radio_checked.png"/>
+                                <connections>
+                                    <action selector="selectSex:" destination="g7h-Sq-ml7" eventType="touchUpInside" id="Vl6-q5-G5c"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8As-JS-W0I">
                                 <rect key="frame" x="30" y="67" width="99" height="105"/>
@@ -208,6 +214,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Info" id="R9q-Qy-Ewv"/>
                     <connections>
+                        <outlet property="fButton" destination="OTA-9y-MqB" id="hDz-iK-cvj"/>
+                        <outlet property="mButton" destination="xnM-c4-ts2" id="gL0-Xv-7sX"/>
                         <outlet property="name" destination="h8j-s1-Ad9" id="vwZ-bp-zWa"/>
                     </connections>
                 </viewController>
@@ -421,19 +429,6 @@
                                     <outlet property="delegate" destination="luD-BS-9YO" id="rPy-45-Rwv"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mYL-Fl-4hz">
-                                <rect key="frame" x="30" y="365" width="260" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="260" id="Juu-Ta-Glb"/>
-                                    <constraint firstAttribute="height" constant="30" id="euL-ad-8Nz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Date of birth">
-                                    <color key="titleColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sex:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKl-pN-l2f">
                                 <rect key="frame" x="184" y="83" width="42" height="21"/>
                                 <constraints>
@@ -532,6 +527,12 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Birth" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pet-EP-2Zh">
+                                <rect key="frame" x="30" y="362" width="260" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.96078437566757202" green="0.96078437566757202" blue="0.96078437566757202" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
@@ -542,14 +543,12 @@
                             <constraint firstItem="bJw-uE-d9e" firstAttribute="top" secondItem="Y1M-rr-bXr" secondAttribute="bottom" constant="14" id="Ao2-SZ-MJ4"/>
                             <constraint firstAttribute="trailing" secondItem="xrd-Db-8E3" secondAttribute="trailing" constant="30" id="EhG-5y-hlF"/>
                             <constraint firstItem="Y1M-rr-bXr" firstAttribute="top" secondItem="2CH-El-rsc" secondAttribute="bottom" constant="21" id="FKs-H6-oPT"/>
-                            <constraint firstItem="mYL-Fl-4hz" firstAttribute="top" secondItem="fvX-Mw-puw" secondAttribute="bottom" constant="17" id="HOZ-n2-EnE"/>
                             <constraint firstItem="9ez-gO-X7N" firstAttribute="leading" secondItem="T1X-Rb-gA2" secondAttribute="leading" constant="30" id="I1o-c1-mTN"/>
                             <constraint firstItem="TAT-Ib-0bY" firstAttribute="leading" secondItem="T1X-Rb-gA2" secondAttribute="leading" constant="30" id="J1E-Hu-mdn"/>
                             <constraint firstItem="250-LJ-cvX" firstAttribute="leading" secondItem="T1X-Rb-gA2" secondAttribute="leading" constant="30" id="KoB-ds-9I2"/>
                             <constraint firstItem="xrd-Db-8E3" firstAttribute="leading" secondItem="Y1M-rr-bXr" secondAttribute="trailing" constant="10" id="Lbd-Jx-bGx"/>
                             <constraint firstItem="3LJ-AI-MNR" firstAttribute="top" secondItem="T1X-Rb-gA2" secondAttribute="top" constant="63" id="OU7-gk-mHP"/>
                             <constraint firstItem="XS5-UD-9NL" firstAttribute="leading" secondItem="bJw-uE-d9e" secondAttribute="trailing" constant="10" id="RRw-fW-Sc9"/>
-                            <constraint firstItem="mYL-Fl-4hz" firstAttribute="leading" secondItem="T1X-Rb-gA2" secondAttribute="leading" constant="30" id="Z7A-an-mwg"/>
                             <constraint firstItem="250-LJ-cvX" firstAttribute="top" secondItem="TAT-Ib-0bY" secondAttribute="bottom" constant="16" id="aWq-ey-mUf"/>
                             <constraint firstItem="T0V-FC-sfm" firstAttribute="leading" secondItem="T1X-Rb-gA2" secondAttribute="leading" constant="30" id="fFV-Cp-blc"/>
                             <constraint firstAttribute="trailing" secondItem="XS5-UD-9NL" secondAttribute="trailing" constant="35" id="hUZ-3C-wg1"/>
@@ -564,7 +563,7 @@
                     <navigationItem key="navigationItem" title="Registration" id="yuT-L5-1aB"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="birthButton" destination="mYL-Fl-4hz" id="4Lm-u8-adU"/>
+                        <outlet property="date" destination="Pet-EP-2Zh" id="f55-ee-SHV"/>
                         <outlet property="email" destination="fvX-Mw-puw" id="BHQ-qI-uyQ"/>
                         <outlet property="fButton" destination="bJw-uE-d9e" id="w3n-cf-aWC"/>
                         <outlet property="mButton" destination="Y1M-rr-bXr" id="5tN-om-Qsh"/>

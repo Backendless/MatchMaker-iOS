@@ -9,12 +9,14 @@
 #import "RegistrateViewController.h"
 #import "Backendless.h"
 #import "AppDelegate.h"
+#import "NSString+Date.h"
 
 @interface RegistrateViewController ()<UITextFieldDelegate>
 {
     NSString *gender;
     NSDate *birth;
 }
+-(void)changeDate:(UIDatePicker *)sender;
 -(BOOL)checkRegistrationData;
 @end
 
@@ -32,7 +34,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIDatePicker *datePicker = [[UIDatePicker alloc] init];
+    datePicker.datePickerMode = UIDatePickerModeDate;
+    [datePicker addTarget:self action:@selector(changeDate:) forControlEvents:UIControlEventValueChanged];
     [[self navigationController] setNavigationBarHidden:NO];
+    [_date setInputView:datePicker];
     birth = [NSDate date];
     gender = @"male";
     _mButton.selected = YES;
@@ -54,6 +60,12 @@
 -(BOOL)checkRegistrationData
 {
     return YES;
+}
+-(void)changeDate:(UIDatePicker *)sender
+{
+    birth = sender.date;
+    _date.text = [NSString stringWithDateFormat:@"dd.MM.yyyy" date:birth];
+    [_date resignFirstResponder];
 }
 -(void)selectSex:(UIButton *)sender
 {

@@ -10,5 +10,9 @@
 
 @interface EditInfoViewController : UIViewController
 @property (nonatomic, weak) IBOutlet UITextField *name;
+@property (nonatomic, weak) IBOutlet UITextField *date;
+@property (nonatomic, weak) IBOutlet UIButton *mButton;
+@property (nonatomic, weak) IBOutlet UIButton *fButton;
+-(IBAction)selectSex:(id)sender;
 -(IBAction)updateInfo:(id)sender;
 @end

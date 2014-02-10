@@ -13,6 +13,7 @@
 @property (nonatomic, weak) IBOutlet UITextField *password;
 @property (nonatomic, weak) IBOutlet UITextField *password2;
 @property (nonatomic, weak) IBOutlet UITextField *email;
+@property (nonatomic, weak) IBOutlet UITextField *date;
 @property (nonatomic, weak) IBOutlet UIButton *birthButton;
 @property (nonatomic, weak) IBOutlet UIButton *mButton;
 @property (nonatomic, weak) IBOutlet UIButton *fButton;
