@@ -11,6 +11,10 @@
 #import "AppDelegate.h"
 
 @interface RegistrateViewController ()<UITextFieldDelegate>
+{
+    NSString *gender;
+    NSDate *birth;
+}
 -(BOOL)checkRegistrationData;
 @end
 
@@ -29,6 +33,9 @@
 {
     [super viewDidLoad];
     [[self navigationController] setNavigationBarHidden:NO];
+    birth = [NSDate date];
+    gender = @"male";
+    _mButton.selected = YES;
     [_birthButton.layer setCornerRadius:5];
     [_birthButton.layer setBorderColor:[UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:0.6].CGColor];
     [_birthButton.layer setBorderWidth:0.5];
@@ -48,7 +55,19 @@
 {
     return YES;
 }
-
+-(void)selectSex:(UIButton *)sender
+{
+    sender.selected = YES;
+    if (sender == _mButton) {
+        gender = @"male";
+        _fButton.selected = NO;
+    }
+    else
+    {
+        gender = @"female";
+        _mButton.selected = NO;
+    }
+}
 -(void)registrate:(id)sender
 {
     if (![self checkRegistrationData]) {
@@ -59,7 +78,7 @@
     user.password = _password.text;
     user.name = _name.text;
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-//    [user setProperties:@{@"gender":@"", @"birthdate":@""}];
+    [user setProperties:@{@"gender":gender, @"birthdate":birth}];
     [backendless.userService registering:user response:^(BackendlessUser *user) {
         NSLog(@"registr");
         [self.navigationController popViewControllerAnimated:YES];

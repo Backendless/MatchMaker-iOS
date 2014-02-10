@@ -496,6 +496,9 @@
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="selected" backgroundImage="radio_checked.png"/>
+                                <connections>
+                                    <action selector="selectSex:" destination="luD-BS-9YO" eventType="touchUpInside" id="Xvj-bp-fbH"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJw-uE-d9e">
                                 <rect key="frame" x="236" y="121" width="21" height="22"/>
@@ -510,6 +513,9 @@
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="selected" backgroundImage="radio_checked.png"/>
+                                <connections>
+                                    <action selector="selectSex:" destination="luD-BS-9YO" eventType="touchUpInside" id="p3F-O0-8b0"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3LJ-AI-MNR">
                                 <rect key="frame" x="30" y="63" width="99" height="105"/>
@@ -560,6 +566,8 @@
                     <connections>
                         <outlet property="birthButton" destination="mYL-Fl-4hz" id="4Lm-u8-adU"/>
                         <outlet property="email" destination="fvX-Mw-puw" id="BHQ-qI-uyQ"/>
+                        <outlet property="fButton" destination="bJw-uE-d9e" id="w3n-cf-aWC"/>
+                        <outlet property="mButton" destination="Y1M-rr-bXr" id="5tN-om-Qsh"/>
                         <outlet property="name" destination="T0V-FC-sfm" id="i8e-v6-6iz"/>
                         <outlet property="password" destination="TAT-Ib-0bY" id="SY3-E5-tGU"/>
                         <outlet property="password2" destination="250-LJ-cvX" id="Ivv-6r-aRi"/>
