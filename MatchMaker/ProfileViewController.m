@@ -8,9 +8,15 @@
 
 #import "ProfileViewController.h"
 #import "Backendless.h"
+#import "ProfileObject.h"
+#import "ProfileGroupViewController.h"
 
-@interface ProfileViewController ()
+@interface ProfileViewController ()<UITableViewDataSource, UITableViewDelegate>
+{
+    ProfileObject *_profile;
+}
 -(void)showLoginViewController:(BOOL)anim;
+
 @end
 
 @implementation ProfileViewController
@@ -27,6 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _profile = [ProfileObject new];
 	// Do any additional setup after loading the view.
 }
 -(void)viewWillAppear:(BOOL)animated
@@ -60,5 +67,33 @@
         [[[UIAlertView alloc] initWithTitle:@"Error" message:error.detail delegate:nil cancelButtonTitle:@"Done" otherButtonTitles:nil] show];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     }];
+}
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 4;
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfileCell" forIndexPath:indexPath];
+    cell.textLabel.text = [_profile getGroupNameForIndex:indexPath.row];
+    return cell;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"ProfileGroup"]) {
+        NSIndexPath *indexPath = [_tableView indexPathForCell:sender];
+        ProfileGroupViewController *VC = (ProfileGroupViewController *)segue.destinationViewController;
+        VC.groupName = [_profile getGroupNameForIndex:indexPath.row];
+        VC.data = [_profile getGroupValuesForIndex:indexPath.row];
+    }
 }
 @end

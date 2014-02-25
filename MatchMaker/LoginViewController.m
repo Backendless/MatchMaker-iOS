@@ -8,6 +8,8 @@
 
 #import "LoginViewController.h"
 #import "Backendless.h"
+#import "AppDelegate.h"
+#import <CoreLocation/CoreLocation.h>
 
 @interface LoginViewController ()<UIAlertViewDelegate, UITextFieldDelegate>
 {
@@ -47,16 +49,28 @@
 }
 -(void)getUserGeoPoint:(BackendlessUser *)user
 {
-//    BackendlessGeoQuery *query = [BackendlessGeoQuery queryWithCategories:@[@"default"]];
-//    query.metadata = (NSMutableDictionary *)@{@"email":user.email};
-//    [backendless.geoService getPoints:query response:^(BackendlessCollection *collection) {
-//        NSLog(@"%@", collection.data);
-//    } error:^(Fault *error) {
-//        NSLog(@"%@", error.detail);
-//    }];
-    
-    [self dismissViewControllerAnimated:YES completion:^{
+    BackendlessGeoQuery *query = [BackendlessGeoQuery queryWithCategories:@[@"default"]];
+    query.metadata = (NSMutableDictionary *)@{@"email":user.email};
+    [backendless.geoService getPoints:query response:^(BackendlessCollection *collection) {
+        NSLog(@"%@", collection.data);
+        [(AppDelegate *)[UIApplication sharedApplication].delegate setUserGeoPoint:collection.data[0]];
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    } error:^(Fault *error) {
+        GEO_POINT p;
+        p.latitude = _locationManagerInstance.location.coordinate.latitude;
+        p.longitude = _locationManagerInstance.location.coordinate.longitude;
+        GeoPoint *point = [GeoPoint geoPoint:p categories:@[@"default"]];
+        [backendless.geoService savePoint:point response:^(GeoPoint *geopoint) {
+            [(AppDelegate *)[UIApplication sharedApplication].delegate setUserGeoPoint:geopoint];
+            [self dismissViewControllerAnimated:YES completion:^{
+            }];
+        } error:^(Fault *error) {
+            
+        }];
     }];
+    
+    
 }
 -(void)login:(id)sender
 {

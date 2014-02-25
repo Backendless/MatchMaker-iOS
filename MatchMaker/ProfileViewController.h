@@ -10,5 +10,6 @@
 
 @interface ProfileViewController : UIViewController
 @property (nonatomic, weak) IBOutlet UILabel *name;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
 -(IBAction)logout:(id)sender;
 @end

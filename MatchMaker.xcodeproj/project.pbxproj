@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		912338BA18BCF8090064501D /* ProfileObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 912338B918BCF8090064501D /* ProfileObject.m */; };
+		912338BD18BCFFDC0064501D /* ProfileGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 912338BC18BCFFDC0064501D /* ProfileGroupViewController.m */; };
 		91C909B918A8AD0D00BCD4E3 /* NSString+Date.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C909B818A8AD0D00BCD4E3 /* NSString+Date.m */; };
 		91F0E06418A11E5800E983E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91F0E06318A11E5800E983E4 /* Foundation.framework */; };
 		91F0E06618A11E5800E983E4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91F0E06518A11E5800E983E4 /* CoreGraphics.framework */; };
@@ -123,6 +125,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		912338B818BCF8090064501D /* ProfileObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileObject.h; sourceTree = "<group>"; };
+		912338B918BCF8090064501D /* ProfileObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileObject.m; sourceTree = "<group>"; };
+		912338BB18BCFFDC0064501D /* ProfileGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileGroupViewController.h; sourceTree = "<group>"; };
+		912338BC18BCFFDC0064501D /* ProfileGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileGroupViewController.m; sourceTree = "<group>"; };
 		91C909B718A8AD0D00BCD4E3 /* NSString+Date.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Date.h"; sourceTree = "<group>"; };
 		91C909B818A8AD0D00BCD4E3 /* NSString+Date.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Date.m"; sourceTree = "<group>"; };
 		91F0E06018A11E5800E983E4 /* MatchMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -458,8 +464,12 @@
 				91F0E07218A11E5800E983E4 /* AppDelegate.h */,
 				91F0E07318A11E5800E983E4 /* AppDelegate.m */,
 				91F0E07518A11E5800E983E4 /* Main.storyboard */,
+				912338BB18BCFFDC0064501D /* ProfileGroupViewController.h */,
+				912338BC18BCFFDC0064501D /* ProfileGroupViewController.m */,
 				91F0E07818A11E5800E983E4 /* LoginViewController.h */,
 				91F0E07918A11E5800E983E4 /* LoginViewController.m */,
+				912338B818BCF8090064501D /* ProfileObject.h */,
+				912338B918BCF8090064501D /* ProfileObject.m */,
 				91F0E1E018A1292100E983E4 /* RegistrateViewController.h */,
 				91F0E1E118A1292100E983E4 /* RegistrateViewController.m */,
 				91F0E1EC18A2E85B00E983E4 /* ProfileViewController.h */,
@@ -1045,6 +1055,8 @@
 			files = (
 				91F0E07A18A11E5800E983E4 /* LoginViewController.m in Sources */,
 				91F0E07418A11E5800E983E4 /* AppDelegate.m in Sources */,
+				912338BA18BCF8090064501D /* ProfileObject.m in Sources */,
+				912338BD18BCFFDC0064501D /* ProfileGroupViewController.m in Sources */,
 				91F0E1E218A1292100E983E4 /* RegistrateViewController.m in Sources */,
 				91F0E07018A11E5800E983E4 /* main.m in Sources */,
 				91F0E1F118A2F7A200E983E4 /* EditInfoViewController.m in Sources */,

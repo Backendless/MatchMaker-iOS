@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-@class CLLocationManager;
+@class CLLocationManager, GeoPoint;
 extern CLLocationManager *_locationManagerInstance;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) GeoPoint *userGeoPoint;
 
 @end
