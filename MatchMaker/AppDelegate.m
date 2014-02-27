@@ -17,6 +17,16 @@ static NSString *SECRET_KEY = @"0E47A528-81B5-C5F9-FF44-713F6CF30900";
 static NSString *VERSION_NUM = @"v1";
 
 @implementation AppDelegate
+
+-(void)updateGeopoint
+{
+    [backendless.geoService savePoint:_userGeoPoint response:^(GeoPoint *point) {
+        _userGeoPoint = point;
+    } error:^(Fault *error) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:error.detail delegate:nil cancelButtonTitle:@"Done" otherButtonTitles:nil] performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:NO];
+    }];
+}
+
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     [DebLog setIsActive:YES];

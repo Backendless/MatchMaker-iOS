@@ -13,5 +13,5 @@ extern CLLocationManager *_locationManagerInstance;
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) GeoPoint *userGeoPoint;
-
+-(void)updateGeopoint;
 @end

@@ -163,6 +163,19 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TP8-hK-9IS" id="UDZ-hC-CBX">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emptyCircle.png" highlightedImage="checkedCircle.png" translatesAutoresizingMaskIntoConstraints="NO" id="Zv5-tA-tmw">
+                                                    <rect key="frame" x="287" y="9" width="25" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ha-fB-UTr">
+                                                    <rect key="frame" x="10" y="11" width="269" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -180,10 +193,10 @@
             </objects>
             <point key="canvasLocation" x="104" y="1398"/>
         </scene>
-        <!--View Controller - Your Matches-->
+        <!--Map View Controller - Your Matches-->
         <scene sceneID="CaE-Aq-6Tz">
             <objects>
-                <viewController id="jlM-Wg-Uma" sceneMemberID="viewController">
+                <viewController id="jlM-Wg-Uma" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DEH-2I-97f"/>
                         <viewControllerLayoutGuide type="bottom" id="Uef-Kv-EMx"/>
@@ -195,11 +208,17 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s1H-XD-Vxt">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="jlM-Wg-Uma" id="MUV-e6-UaV"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Your Matches" id="jKt-ka-dmk"/>
+                    <connections>
+                        <outlet property="mapView" destination="s1H-XD-Vxt" id="k3b-RJ-IeJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="do3-23-6gA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -688,7 +707,9 @@
     <resources>
         <image name="avatar_default_male.png" width="54" height="56"/>
         <image name="button_social.png" width="120" height="59"/>
+        <image name="checkedCircle.png" width="51" height="51"/>
         <image name="decored_login_label.png" width="88" height="17"/>
+        <image name="emptyCircle.png" width="52" height="51"/>
         <image name="icon_female.png" width="18" height="31"/>
         <image name="icon_male.png" width="23" height="25"/>
         <image name="label_facebook.png" width="76" height="17"/>
