@@ -16,15 +16,34 @@ static NSString *APP_ID = @"03140D8F-76C4-F4F7-FF71-C5FDAAB22900";
 static NSString *SECRET_KEY = @"0E47A528-81B5-C5F9-FF44-713F6CF30900";
 static NSString *VERSION_NUM = @"v1";
 
+@interface AppDelegate ()<CLLocationManagerDelegate>
+
+@end
+
 @implementation AppDelegate
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    @synchronized(_userGeoPoint){
+    if (!_userGeoPoint) {
+        return;
+    }
+    CLLocation *location = locations.lastObject;
+    [_userGeoPoint latitude:location.coordinate.latitude];
+    [_userGeoPoint longitude:location.coordinate.longitude];
+        [self updateGeopoint];
+    }
+}
 
 -(void)updateGeopoint
 {
+    @synchronized(_userGeoPoint){
     [backendless.geoService savePoint:_userGeoPoint response:^(GeoPoint *point) {
         _userGeoPoint = point;
     } error:^(Fault *error) {
         [[[UIAlertView alloc] initWithTitle:@"Error" message:error.detail delegate:nil cancelButtonTitle:@"Done" otherButtonTitles:nil] performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:NO];
     }];
+    }
 }
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
@@ -45,7 +64,7 @@ static NSString *VERSION_NUM = @"v1";
     
     _locationManagerInstance = [[CLLocationManager alloc] init];
     [_locationManagerInstance startUpdatingLocation];
-    
+    _locationManagerInstance.delegate = self;
     return YES;
 }
 							
